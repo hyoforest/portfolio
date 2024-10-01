@@ -1,4 +1,5 @@
-html{padding: 0;margin: 0;}
+html,body,div,header,main,footer,section,article{padding: 0; margin: 0;}
+
 h2{
   padding: 0;
   margin: 0;

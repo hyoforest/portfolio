@@ -9,13 +9,13 @@ function WorkPage(){
     return(
         <section id="work" className="work">
           <h2>Work</h2>
-          <ul>
-            <li><Project01/></li>
-            <li><Project02/></li>
-            <li><Project03/></li>
-            <li><Project04/></li>
-            <li><Project05/></li>
-          </ul>
+          <div>
+            <div><Project01/></div>
+            <div><Project02/></div>
+            <div><Project03/></div>
+            <div><Project04/></div>
+            <div><Project05/></div>
+          </div>
         </section>
     )
 }
