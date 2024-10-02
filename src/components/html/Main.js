@@ -5,129 +5,102 @@ import Work from '../Work';
 import Contact from '../Contact';
 import Dots from "./Dots";
 
+
 const DIVIDER_HEIGHT = 5;
+
+// redux로 옮기기
+//컴포넌트 추가 시 배열에도 추가
+const Components = [Title,Intro,Work,Contact]
+
 function Main({scrollRef}){
     const outerDivRef = useRef();
-    const [currentPage, setCurrentPage] = useState(1);
+    const touchStartRef = useRef(0);
+    const isScrollingRef = useRef(false);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const navDotClick = (index) => {
+        setCurrentPage(index);
+
+        const pageHeight = window.innerHeight;
+        outerDivRef.current.scrollTo({
+            top: index * (pageHeight + DIVIDER_HEIGHT),
+            left: 0,
+            behavior: "smooth",
+    })
+}
 
     useEffect(() => {
+        const handleScroll =(scrollDirection)=>{
+            const pageHeight = window.innerHeight;
+            const maxPage = Components.length-1;
+            let newPage = currentPage + scrollDirection
+            newPage = Math.max(0, Math.min(newPage,maxPage))
+            
+            if(newPage !== currentPage){
+                outerDivRef.current.scrollTo(
+                    {top:newPage *(pageHeight + DIVIDER_HEIGHT),
+                    left:0,
+                    behavior :"smooth"
+                    })
+                    setCurrentPage(newPage);
+            }
+        }
+
         const wheelHandler = (e) => {
             e.preventDefault();
-            const { deltaY } = e;
-            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh
-            if (deltaY > 0){
-                // 스크롤 내릴 때
-                if (scrollTop >= 0 && scrollTop < pageHeight) {
-                  //현재 1페이지
-                    console.log("현재 1페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight + DIVIDER_HEIGHT,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(2);
-                } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-                  //현재 2페이지
-                    console.log("현재 2페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(3);
-                }else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
-                    //현재 3페이지
-                    console.log("현재 3페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 3 + DIVIDER_HEIGHT *3,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(4);
-                }else {
-                  // 현재 4페이지
-                    console.log("현재 4페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 3 + DIVIDER_HEIGHT *3,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                }
-            } else {
-                // 스크롤 올릴 때
-                if (scrollTop >= 0 && scrollTop < pageHeight) {
-                  //현재 1페이지
-                    console.log("현재 1페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-                  //현재 2페이지
-                    console.log("현재 2페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(1);
-                }
-                else if(scrollTop >= pageHeight && scrollTop < pageHeight*3){
-                    //현재 3페이지
-                    console.log("현재 3페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight + DIVIDER_HEIGHT,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(2);
-                }else{
-                  // 현재 4페이지
-                    console.log("현재 4페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-                        left: 0,
-                        behavior: "smooth",
-                        });
-                        setCurrentPage(3);
+            if (!isScrollingRef.current) {
+                const { deltaY } = e;
+                isScrollingRef.current = true;
+                handleScroll(deltaY > 0 ? 1 : -1);
+                
+                setTimeout(() => {
+                    isScrollingRef.current = false;
+                }, 500);
+            }
+        };
+        const touchStartHandler = (e) => {
+            touchStartRef.current = e.touches[0].clientY;
+        };
+
+        const touchMoveHandler = (e) => {
+            const touchDiff = touchStartRef.current - e.touches[0].clientY;
+            if (Math.abs(touchDiff) > 30) {
+                e.preventDefault();
+                if (!isScrollingRef.current) {
+                    isScrollingRef.current = true;
+                    handleScroll(touchDiff > 0 ? 1 : -1);
+
+                    setTimeout(() => {
+                        isScrollingRef.current = false;
+                    }, 1000);
                 }
             }
-            };
+        };
+
         const outerDivRefCurrent = outerDivRef.current;
         outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+        outerDivRefCurrent.addEventListener("touchstart", touchStartHandler);
+        outerDivRefCurrent.addEventListener("touchmove", touchMoveHandler, { passive: false });
+
         return () => {
-        outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
-    };
-    }, []);
+            outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+            outerDivRefCurrent.removeEventListener("touchstart", touchStartHandler);
+            outerDivRefCurrent.removeEventListener("touchmove", touchMoveHandler);
+        };
+    }, [currentPage]);
+
     return(
         <main id="main" className="main">
-            <div class="outer" ref={outerDivRef}>
-            <Dots currentPage={currentPage} />
-                <div className="inner"
-                ref={(el) => (scrollRef.current[0] = el)}
-                >
-                <Title/>
-                </div>
-                <div className="divider"></div>
-                <div className="inner"
-                ref={(el) => (scrollRef.current[1] = el)}
-                >
-                <Intro/>
-                </div>
-                <div className="divider"></div>
-                <div className="inner"
-                ref={(el) => (scrollRef.current[2] = el)}
-                >
-                <Work/>
-                </div>
-                <div className="divider"></div>
-                <div className="inner"
-                ref={(el) => (scrollRef.current[3] = el)}
-                >
-                <Contact/>
-                </div>
+            <div className="outer" ref={outerDivRef}>
+                <Dots currentPage={currentPage} dotCount={Components.length} onDotClick={navDotClick}/>
+                {Components.map((Component, index) => (
+                    <div key={index}>
+                        <div className="inner" ref={(el) => (scrollRef.current[index] = el)}>
+                            <Component />
+                        </div>
+                        {index < Components.length - 1 && <div className="divider"></div>}
+                    </div>
+                ))}
             </div>
         </main>
     )

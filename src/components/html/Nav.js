@@ -1,12 +1,17 @@
 import React from "react";
+import Title from "../Title";
+import Intro from "../Intro";
+import Work from "../Work";
+import Contact from "../Contact";
 
+
+const Components = [Title, Intro, Work, Contact];
 function Nav({onNavigate}){
-    const pages = ['Title', 'Intro', 'Work', 'Contact'];
     return(
         <nav id="nav" className="nav" onClick={onNavigate}>
             <ul>
-            {pages.map((page) => (
-                <li key={page}>{page}</li>
+            {Components.map((component) => (
+                <li key={component.name}>{component.name}</li>
             ))}
             </ul>
         </nav>

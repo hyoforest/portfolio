@@ -1,6 +1,6 @@
 import React from "react";
 
-function IntroPage(){
+function Intro(){
     return(
         <section className="intro">
           <h2>introduce</h2>
@@ -12,4 +12,4 @@ function IntroPage(){
     )
 }
 
-export default IntroPage;
+export default Intro;

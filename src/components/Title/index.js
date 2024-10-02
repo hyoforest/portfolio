@@ -1,6 +1,6 @@
 import React from "react";
 
-function TitlePage({scrollDownRef}){
+function Title(){
     return(
         <section className="titlePage">
         <h2>intro</h2>
@@ -14,4 +14,4 @@ function TitlePage({scrollDownRef}){
     )
 }
 
-export default TitlePage;
+export default Title;

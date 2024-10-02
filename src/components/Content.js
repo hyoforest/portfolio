@@ -1,12 +1,12 @@
 import React,{useRef} from "react";
 import Header from "./html/Header";
 import Main from "./html/Main";
-import Footer from "./html/Footer";
 
 function Content(){
     const scrollRef = useRef([]);
-    const handleScrollView = (event) => {
+    const navScroll = (event) => {
         const name = event.target.innerText;
+        // redux 사용해야 함
         const category = {
             Title: 0,
             Intro: 1,
@@ -17,9 +17,8 @@ function Content(){
     };
     return(
         <div className="Content">
-            <Header onNavigate={handleScrollView}/>
+            <Header onNavigate={navScroll}/>
             <Main scrollRef={scrollRef}/>
-            {/* <Footer/> */}
         </div>
     )
 }

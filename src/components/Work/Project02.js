@@ -1,10 +1,11 @@
-import React from "react";
+const Project02 = {
+    title: "프로젝트 02",
+    duration: "0개월",
+    member: "0명",
+    part: "역할",
+    environment: "개발 환경",
+    function: "기능 설명",
+    description: "이것은 프로젝트 02의 설명입니다.",
+};
 
-function Project02(){
-    return(
-        <div className="Project02">
-            <h3>프로젝트 2</h3>
-        </div>
-    )
-}
 export default Project02;

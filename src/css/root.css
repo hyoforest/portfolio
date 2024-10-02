@@ -1,5 +1,14 @@
 @charset "utf-8";
 
-.cont{
-    display: none;
+.light {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: rgba(0,0,0,0.8);
+	position: absolute;
+	z-index: -99;
+	top: 20%;
+	left: 10%;
+	filter: blur(5vw);
+	mix-blend-mode :darken;
 }
