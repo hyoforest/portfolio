@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+.App {
+    width: 100%;
+    background: #000;
+}
+
+.top_btn {
+    z-index: 99;
+}
+
+.dots {
+    z-index: 99;
+}
+
+.outer {
+	height: 100vh;
+	overflow-y: auto;
+}
+.outer::-webkit-scrollbar {
+	display: none;
+}
+.inner{
+	height:100vh
+    }
+
+.divider {
+	width: 100%;
+	height: 5px;
+}
+
+.content{
+    max-width: 1920px;
+    position: relative;
+}
+.content .header {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    z-index: 999;
+}
+
+.header h1 {
+    position: absolute;
+    left: 4%;
+    font-size: 40px;
+    width: 100px;
+}
+
+.nav {
+    width: 300px;
+    right: 4%;
+    top: 12px;
+    position: absolute;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.nav ul a{
+    font-weight: bold;
+    color:#fff;
+}
+
+section{
+    height: 100vh;
+    padding: 0 20px;
+    box-sizing: border-box;
+    padding-top: 120px;
+}
+section h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.title {
+    background: #12372A;
+}
+
+.intro {
+    background: #436850;
+}
+
+.work {
+    max-width: 1920px;
+    margin: 0 auto;
+    background: #ADBC9F;
+}
+.work .mySwiper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.work_slider{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    background: #FBFADA;
+    position: relative;
+}
+
+.footer{
+    width: 100%;
+    height: 140px;
+    background:#333;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}

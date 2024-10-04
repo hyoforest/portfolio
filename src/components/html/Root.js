@@ -57,7 +57,6 @@ function Root() {
     document.addEventListener("mousemove", setPosition);
     document.addEventListener("touchmove", setPosition);
 
-
     // Cleanup
     return () => {
       mouseWrap.removeEventListener("mousemove", handleMouseMove);
@@ -73,10 +72,7 @@ function Root() {
           <div className="mouse_cursor"></div>
           <div className="jump_wrap">
             <div className="jump_bg">
-              <img
-                src="https://images.unsplash.com/photo-1727252161075-0deb18037173?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-              />
+            <img src="https://images.unsplash.com/photo-1657486234199-fd558249b3a1?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
               <div className="jump_text">
               <p>Click Anywhere</p>
               </div>

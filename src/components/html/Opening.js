@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React from "react";
 import '../../css/opening.css'
 import { motion } from "framer-motion"
 
@@ -7,7 +7,8 @@ function Opening() {
   return (
     <div className="opening_animation">
       <motion.div
-        className="circle" 
+        className="circle"
+        initial={{x:"-50%" }}
         animate={{
         scale: [1, 2, 2, 1, 1],
         rotate: [0, 0, 270, 270, 0],
@@ -21,7 +22,6 @@ function Opening() {
         repeatDelay: 1
         }}
       />
-
     </div>
 );
 }

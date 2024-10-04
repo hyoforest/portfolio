@@ -6,12 +6,13 @@ function TopBtn({onDotClick}){
         width: 60,
         height: 60,
         border: "1px solid black",
-        background:"red",
+        background:"#000",
+        color:"#fff",
         borderRadius: "50%",
         cursor: "pointer",
         position:"absolute",
-        bottom:60,
-        right:60,
+        bottom:40,
+        right:40,
     };
 
     return(

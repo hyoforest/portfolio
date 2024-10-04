@@ -27,7 +27,7 @@ const Dots = ({ currentPage, dotCount,onDotClick }) => {
     const containerStyle = {
         position: "fixed",
         top: "50%",
-        right: 100,
+        right: 60,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

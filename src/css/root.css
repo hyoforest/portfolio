@@ -52,16 +52,16 @@
 .mouse_cursor {
 	left: 0;
 	top: 0;
-	background: #fff;
+	background: #111;
 	border-radius: 50%;
 	z-index: 1000;
 	user-select: none;
 	width: 200px;
 	height: 200px;
 	position: absolute;
-	filter: blur(1.4vw);
+	filter: blur(1.2vw);
 }
-.mouse__info {
+.mouse_info {
 	position: absolute;
 	left: 20px;
 	bottom: 10px;

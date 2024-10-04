@@ -1,7 +1,6 @@
 import React,{useRef} from "react";
 import Header from "./Header";
 import Main from "./Main";
-import "../../css/content.css"
 
 function Content(){
     const scrollRef = useRef([]);
@@ -17,7 +16,7 @@ function Content(){
         scrollRef.current[category[name]].scrollIntoView({ behavior: "smooth" });
     };
     return(
-        <div className="Content">
+        <div className="content">
             <Header onNavigate={navScroll}/>
             <Main scrollRef={scrollRef}/>
         </div>

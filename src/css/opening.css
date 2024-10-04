@@ -2,12 +2,12 @@
 .opening_animation{
     width: 100%;
     height: 100vh;
-    background: green;
+    background: #000;
 }
 .circle{
     width: 100px;
     height: 100px;
-    background: greenyellow;
+    background: #fff;
     border-radius: 50%;
     position: absolute;
     top: 50%;

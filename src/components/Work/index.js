@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import "swiper/css";
 import 'swiper/css/navigation';
 import '../../css/test.css'
-
-
 import Project from "./Project";
 import Project01 from "./Project01";
 import Project02 from "./Project02";
@@ -36,11 +34,18 @@ function Work(){
       <div className="work_slider">
         <Swiper
           className="mySwiper"
-          slidesPerView={3}
-          spaceBetween={20}
           loop={true}
           navigation={true}
           modules={[Navigation]}
+          breakpoints={{
+            767:{ slidesPerView: 1,
+              centeredSlides:true
+            },
+            768:{slidesPerView: 3,
+              slidesOffsetBefore : 50,
+              centeredSlides:false
+            }
+          }}
         >
           <AnimatePresence>
           {projects.map((Project, index) => (

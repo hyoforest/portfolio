@@ -1,41 +1,6 @@
-.dots{
-	z-index: 99;	
-}
 
-.top_btn{
-	z-index: 99;
-}
 
-.ShowMain{
-	position: absolute;
-	z-index: 99;
-}
-.outer {
-	height: 100vh;
-	overflow-y: auto;
-  }
-  .header{
-	position: absolute;
-  }
-  /* 화면에서 스크롤바 안보이게 */
-  .outer::-webkit-scrollbar {
-	display: none;
-  }
-  
-  .inner{
-	background: #eee;
-	height:100vh
-  }
-  
-  .divider {
-	width: 100%;
-	height: 5px;
-	background-color: #eee;
-  }
-  .ShowMain{
-	position: absolute;
-	right: 20px;
-  }
+
   .modal_effect{
 	position: relative;
   }

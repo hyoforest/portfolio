@@ -42,12 +42,7 @@ table {
 	border-spacing: 0;
 }
 
-section{
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-a{
+a{	color: #333;
 	text-decoration: none;
 }
 
