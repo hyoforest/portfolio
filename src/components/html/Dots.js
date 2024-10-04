@@ -36,7 +36,7 @@ const Dots = ({ currentPage, dotCount,onDotClick }) => {
         height: 100,
     };
 
-    return <div style={containerStyle}>{dots}</div>;
+    return <div style={containerStyle} className="dots">{dots}</div>;
 };
 
 export default Dots;

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from 'swiper/modules';
+import { motion, AnimatePresence } from 'framer-motion'
 import "swiper/css";
+import 'swiper/css/navigation';
+import '../../css/test.css'
+
 
 import Project from "./Project";
 import Project01 from "./Project01";
@@ -26,34 +31,52 @@ function Work(){
   };
 
   return (
-    <section id="work" className={`work ${modalOpen ? "fullscreen" : ""}`}>
+    <section id="Work" className={`work ${modalOpen ? "fullscreen" : ""}`}>
       <h2>Work</h2>
       <div className="work_slider">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={10}
           className="mySwiper"
+          slidesPerView={3}
+          spaceBetween={20}
+          loop={true}
+          navigation={true}
+          modules={[Navigation]}
         >
+          <AnimatePresence>
           {projects.map((Project, index) => (
             <SwiperSlide key={index}>
-              <div className="project" onClick={() => openModal(index)} 
+              <motion.div
+                whileHover={{ scale: 0.9 }} whileTap={{ scale: 0.6 }}
+                className="project"
+                onClick={() => openModal(index)} 
                 role="button"
                 tabIndex={index}
-                onKeyDown={(e) => e.key === 'Enter' && openModal(index)}>
+                onKeyDown={(e) => e.key === 'Enter' && openModal(index)}
+                >
                 <h3>{Project.title}</h3>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
+          </AnimatePresence>
         </Swiper>
-      </div>
-
+        </div>
+      <AnimatePresence>
       {modalOpen && (
+        <motion.div
+          className="modal_effect"
+          initial={{ opacity: 0}}
+          animate={{ opacity: 1}}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
         <Project 
           open={modalOpen} 
           close={closeModal}
           project={projects[projectIndex]}
         />
+        </motion.div>
       )}
+    </AnimatePresence>
     </section>
   );
 }

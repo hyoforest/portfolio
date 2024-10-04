@@ -1,6 +1,7 @@
 import React,{useRef} from "react";
-import Header from "./html/Header";
-import Main from "./html/Main";
+import Header from "./Header";
+import Main from "./Main";
+import "../../css/content.css"
 
 function Content(){
     const scrollRef = useRef([]);

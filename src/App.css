@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -44,4 +45,15 @@ table {
 section{
   max-width: 1280px;
   margin: 0 auto;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:active{
+	color: #333;
+}
+a:hover{
+	color: #333;
 }

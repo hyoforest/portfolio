@@ -4,7 +4,7 @@ import Intro from '../Intro';
 import Work from '../Work';
 import Contact from '../Contact';
 import Dots from "./Dots";
-
+import TopBtn from "../html/TopBtn";
 
 const DIVIDER_HEIGHT = 5;
 
@@ -20,7 +20,7 @@ function Main({scrollRef}){
 
     const navDotClick = (index) => {
         setCurrentPage(index);
-
+        
         const pageHeight = window.innerHeight;
         outerDivRef.current.scrollTo({
             top: index * (pageHeight + DIVIDER_HEIGHT),
@@ -88,7 +88,6 @@ function Main({scrollRef}){
             outerDivRefCurrent.removeEventListener("touchmove", touchMoveHandler);
         };
     }, [currentPage]);
-
     return(
         <main id="main" className="main">
             <div className="outer" ref={outerDivRef}>
@@ -102,6 +101,7 @@ function Main({scrollRef}){
                     </div>
                 ))}
             </div>
+            <TopBtn onDotClick={navDotClick} />
         </main>
     )
 }
