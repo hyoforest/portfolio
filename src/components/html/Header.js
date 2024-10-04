@@ -6,7 +6,7 @@ function Header({onNavigate}){
 
     return(
     <header id="header" className="header">
-        <h1 onClick={reload}>로고</h1>
+        <h1 onClick={reload}>HYO</h1>
         <Nav onNavigate={onNavigate} />
     </header>
     )

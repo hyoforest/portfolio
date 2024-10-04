@@ -1,21 +1,19 @@
 
 
-
-  .modal_effect{
-	position: relative;
-  }
-  .project{
-	width: 300px;
-	height: 400px;
+.project {
+	width: 320px;
+	height: 500px;
 	background: #333;
 	border-radius: 20px;
 	cursor: pointer;
-  }
-  .modal_effect{
+}
+
+.modal_effect {
 	position: fixed;
 	z-index: 1000;
-  }
-  .modal {
+}
+
+.modal {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -27,20 +25,23 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
+}
 
-  .modal button {
+.modal button {
 	outline: none;
 	cursor: pointer;
 	border: 0;
-  }
-  .modal.open {
+}
+
+.modal.open {
 	animation-name: fadeIn;
-  }
-  .modal.open > .modal_content {
+}
+
+.modal.open>.modal_content {
 	animation-name: slideUp;
-  }
-  .modal_content {
+}
+
+.modal_content {
 	width: 1000px;
 	max-width: 1000px;
 	margin: 0 auto;
@@ -48,14 +49,16 @@
 	background-color: #fff;
 	overflow: hidden;
 	animation: slideDown 0.25s ease-out forwards;
-  }
-  .modal_head {
+}
+
+.modal_head {
 	position: relative;
 	padding: 16px 64px 16px 16px;
 	background-color: #f1f1f1;
 	font-weight: 700;
-  }
-  .modal_head button {
+}
+
+.modal_head button {
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -65,20 +68,23 @@
 	text-align: center;
 	color: #999;
 	background-color: transparent;
-  }
-  .modal_body {
+}
+
+.modal_body {
 	padding: 16px;
 	border-bottom: 1px solid #dee2e6;
 	border-top: 1px solid #dee2e6;
-  }
-  .modal_foot {
+}
+
+.modal_foot {
 	padding: 12px 16px;
 	text-align: right;
-  }
-  .modal_foot button {
+}
+
+.modal_foot button {
 	padding: 6px 12px;
 	color: #fff;
 	background-color: #6c757d;
 	border-radius: 5px;
 	font-size: 13px;
-  }
+}

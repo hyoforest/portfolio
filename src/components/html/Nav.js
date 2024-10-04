@@ -6,13 +6,14 @@ import Contact from "../Contact";
 import {Link} from "react-router-dom"
 
 const Components = [Title, Intro, Work, Contact];
+
 function Nav({onNavigate}){
     return(
         <nav id="nav" className="nav">
             <ul>
             {Components.map((component) => (
                 <li key={component.name}  onClick={onNavigate}>
-                    <Link to={component.name}>{component.name} </Link></li>
+                    <Link to={component.name}>{component.name}</Link></li>
             ))}
             </ul>
         </nav>

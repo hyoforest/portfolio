@@ -1,13 +1,14 @@
 import React,{useState,useEffect} from 'react';
-import './App.css';
-import Loading from './components/html/Loading';
 import {createBrowserRouter,createRoutesFromElements,RouterProvider,Route} from "react-router-dom";
+import { AnimatePresence, motion } from 'framer-motion';
+import store from "./redux/store";
+import './App.css';
 import Title from './components/Title'
 import Intro from './components/Intro'
 import Work from './components/Work'
 import Contact from './components/Contact'
 import Root from './components/html/Root'
-import { AnimatePresence, motion } from 'framer-motion';
+import Loading from './components/html/Loading';
 import "./css/main.css"
 
 const router = createBrowserRouter(
@@ -27,7 +28,7 @@ function App(){
   useEffect(()=>{
     const timer = setTimeout(()=>{
       setIsLoading(false);
-    },10000)
+    },6000)
     return ()=> clearTimeout(timer);
   },[])
 
@@ -36,7 +37,7 @@ function App(){
   }
   return (
     <div className="App">
-          {isLoading? <Loading isLoading ={isLoading} onSkip={SKIP}/>:
+          {isLoading? <Loading onSkip={SKIP}/>:
           <AnimatePresence mode='wait'>
           <motion.div
           initial={{ opacity: 0,
@@ -47,7 +48,7 @@ function App(){
           }}
           transition={{ duration: 1}}
           >
-          <RouterProvider router={router}/>
+          <RouterProvider router={router} store={store}/>
           </motion.div>
           </AnimatePresence>
         }

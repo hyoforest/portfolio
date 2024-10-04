@@ -3,7 +3,7 @@ import Opening from "./Opening";
 
 
 
-function Loading({isLoading,onSkip}){
+function Loading({onSkip}){
     const btnStyle ={
         color:"#fff",
         fontSize:"12px",

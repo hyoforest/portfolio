@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+body{
+    /* font-family: "Poppins", sans-serif; */
+	font-weight: 400;
+	font-style: normal;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
 .App {
     width: 100%;
     background: #000;
@@ -19,6 +26,11 @@
 }
 .outer::-webkit-scrollbar {
 	display: none;
+}
+
+.outer{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .inner{
 	height:100vh
@@ -42,10 +54,13 @@
 }
 
 .header h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
     position: absolute;
     left: 4%;
     font-size: 40px;
     width: 100px;
+    cursor: pointer;
 }
 
 .nav {
@@ -116,4 +131,14 @@ section h2{
     left: 0;
     bottom: 0;
     text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .work .swiper-slide {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

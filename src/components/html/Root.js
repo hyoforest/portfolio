@@ -1,6 +1,5 @@
 import React, { useState, useEffect,useRef } from "react";
 import Content from "./Content";
-import "../../css/test.css";
 import "../../css/root.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { gsap } from "gsap";

@@ -4,7 +4,7 @@ import { Navigation } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion'
 import "swiper/css";
 import 'swiper/css/navigation';
-import '../../css/test.css'
+import '../../css/modal.css'
 import Project from "./Project";
 import Project01 from "./Project01";
 import Project02 from "./Project02";
@@ -38,12 +38,18 @@ function Work(){
           navigation={true}
           modules={[Navigation]}
           breakpoints={{
-            767:{ slidesPerView: 1,
-              centeredSlides:true
+            1000:{ slidesPerView: 3,
+              slidesOffsetBefore : 40,
             },
-            768:{slidesPerView: 3,
+            768:{
+              slidesPerView: 2,
               slidesOffsetBefore : 50,
-              centeredSlides:false
+            },
+            680:{
+              slidesPerView: 1,
+              slidesOffsetBefore : 0,
+              centeredSlides: true,
+              spaceBetween: 20,
             }
           }}
         >

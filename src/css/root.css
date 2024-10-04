@@ -25,6 +25,7 @@
 	overflow: hidden;
 	transition: transform 500ms ease;
 	cursor: none;
+	/* mix-blend-mode: multiply; */
 }
 
 .jump_wrap .jump_bg:hover {
@@ -48,18 +49,20 @@
 	white-space: nowrap;
 	line-height: 1.4;
 	font-weight: 300;
+	color: #fff;
 }
 .mouse_cursor {
 	left: 0;
 	top: 0;
-	background: #111;
+	background: #fff;
 	border-radius: 50%;
 	z-index: 1000;
 	user-select: none;
-	width: 200px;
-	height: 200px;
+	width: 120px;
+	height: 120px;
 	position: absolute;
 	filter: blur(1.2vw);
+	mix-blend-mode:screen;
 }
 .mouse_info {
 	position: absolute;
@@ -68,4 +71,5 @@
 	font-size: 14px;
 	line-height: 1.6;
 	color: #fff;
+	
 }
