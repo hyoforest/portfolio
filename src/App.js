@@ -15,12 +15,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<Root />}>
           <Route path="/title" element={<Title />} />
-          <Route path="/loading" element={<Loading />} />
           <Route path="/intro" element={<Intro />} />
           <Route path="/work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/loading" element={<Loading />} />
       </Route>
-  )
+  ),
+  { basename: process.env.PUBLIC_URL }
   )
 function App(){
   const[isLoading,setIsLoading] = useState(true); 
